@@ -19,7 +19,7 @@ $app->router->add('', function() use ($app) {
   $byline  = $app->fileContent->get('byline.md');
   $byline = $app->textFilter->doFilter($byline,'markdown');
  
-  $app->views->add('me/aboutme', ['img'=>'uv.png','content'=>$content,'byline'=>$byline]);
+  $app->views->add('me/aboutme', ['img'=>'../globe.png','content'=>$content,'byline'=>$byline]);
 
 });
 
