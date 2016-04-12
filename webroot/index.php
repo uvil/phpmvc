@@ -31,9 +31,6 @@ $app->router->add('user_info', function() use ($app, $di)
   $usr = new \Anax\UVC\CUserBase('user');
   $usr->setDI($di);
   
-  $usr->logOut();
-  $usr->logIn();
-  
   ob_start();
   
   var_dump($usr->getUserInfo());
@@ -43,15 +40,33 @@ $app->router->add('user_info', function() use ($app, $di)
   var_dump($usr->isAuthorised());
   $html .= "<h4>isAuthorised:</h4><p><pre>" . ob_get_clean() . "</pre>";
   
-  $html .= "<hr><p>&nbsp;</p>";
-  
-  $html .= $usr->getLoginForm();
-  
+  $html .= "<hr><p>&nbsp;</p>"; 
   
   $app->theme->setVariable('main',$html);
-  
-  
 });
+
+$app->router->add('login', function() use ($app, $di) 
+{
+  $app->theme->setVariable('title', "Login");
+  
+  $usr = new \Anax\UVC\CUserBase('user');
+  $usr->setDI($di);
+  
+$app->theme->setVariable('main',"<div style='margin-top:80px;'>".$usr->getLoginForm()."</div>");
+});
+
+$app->router->add('logout', function() use ($app, $di) 
+{
+  $app->theme->setVariable('title', "Logout");
+  
+  $usr = new \Anax\UVC\CUserBase('user');
+  $usr->setDI($di);
+  
+  $usr->logout();
+  
+$app->theme->setVariable('main',"<div style='margin-top:80px;'>Du är nu utloggad.</div>");
+});
+  
 
  
 $app->router->add('redovisning', function() use ($app) {

@@ -6,7 +6,7 @@
 return [
 
     // Use for styling the menu
-    'class' => 'navbar',
+    'class' => 'uvnavbar',
  
     // Here comes the menu strcture
     'items' => [
@@ -31,6 +31,20 @@ return [
         'user_info' => [
             'text'  =>'User info',
             'url'   => $this->di->get('url')->create('user_info'),
+            'title' => 'Internal route within this frontcontroller'
+        ],
+        
+        // This is a menu item
+        'login' => [
+            'text'  =>'Login',
+            'url'   => $this->di->get('url')->create('login'),
+            'title' => 'Internal route within this frontcontroller'
+        ],
+        
+        // This is a menu item
+        'logout' => [
+            'text'  =>'Logout',
+            'url'   => $this->di->get('url')->create('logout'),
             'title' => 'Internal route within this frontcontroller'
         ],
         
