@@ -20,16 +20,26 @@ class CUserBase extends \Anax\UVC\CDatabaseModel  {
   }
   
   public function logIn($name=null, $pass=null){
-    $this->db->select('acronym, name, email')
+    
+    //get database entry
+    $this->db->select('name, acronym, email,password')
               ->from($this->usersTableName)
-              ->where("id = 1");
-
-     $this->db->execute();
+              ->where("acronym=?");
+    
+    $this->db->execute([$name]);
      
     $res = $this->db->fetchOne();
-   
- 
-   $this->session->set('user', $res);
+    
+    //check return value and password
+    if($res != false && password_verify($pass, $res->password)){
+      unset($res->password);
+      $this->session->set('user', $res);
+      return true;
+    }
+    else{
+      $this->session->set('user', null);
+      return false;
+    }
   }
   
   public function logOut(){

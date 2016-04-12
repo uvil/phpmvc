@@ -62,9 +62,20 @@ $app->router->add('login', function() use ($app, $di)
   $usr = new \Anax\UVC\CUserBase('user');
   $usr->setDI($di);
   
-  $usr->login();
+  $pass = $app->request->getPost('password');
+  $name = $app->request->getPost('loginname');
+
+  //check login and give feedback
+  $res = null;
+  if($usr->login($name,$pass)){
+    $res = "<div style='margin-top:80px;'>Okej! Du är nu inloggad.</div>";
+  }
+  else{
+   $res = "<div style='margin-top:80px;'>Nope! Fel användarnamn eller lösenord.</div>";
+  }
+   
+  $app->theme->setVariable('main',$res);
   
-$app->theme->setVariable('main',"<div style='margin-top:80px;'>Här skall formulärdata kollas mot databasen. Ännu ej klart. Du är nu inloggad.</div>");
 });
 
 $app->router->add('logout', function() use ($app, $di) 

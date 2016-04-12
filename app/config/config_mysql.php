@@ -23,9 +23,9 @@ else {
   
   // Define and return settings for student database connection
   
-  define('DB_USER', 'urvi15');          // The database username
-  define('DB_PASSWORD', 'Py-5t1Q;');    // The database password
-  define('DB_DSN', 'mysql:host=blu-ray.student.bth.se;dbname=urvi15;');  // The database connection
+  define('DB_USER', 'xxxx');          // The database username
+  define('DB_PASSWORD', 'yyyy');    // The database password
+  define('DB_DSN', 'mysql:host=blu-ray.student.bth.se;dbname=zzz;');  // The database connection
   define('DB_TABLE_PREFIX', 'phpmvc04_');        // The table prefix
   
   return [
