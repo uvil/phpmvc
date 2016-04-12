@@ -65,8 +65,50 @@ class CUserBase extends \Anax\UVC\CDatabaseModel  {
   public function getLoginForm(){
     
     return <<< HTML
-    <h1>This is some random login form</h1>
-    As said before it is some random login form...
+        <div class="container" >
+		
+			<div class="col-sm-6 col-md-8 col-md-offset-2">
+				<div class="panel panel-default " style="padding: 30px;">
+					
+					
+						<form role="form"  action="?p=main" method="POST">
+							
+								<div class="row" style="padding-bottom:20px;">
+									<div class="text-center">
+										<h2>Ange kontouppgifter</h2>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user input-size-3"></i>
+												</span> 
+												<input class="form-control input-size-3" placeholder="Username" name="loginname" type="text" autofocus>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												<input class="form-control" placeholder="Password" name="password" type="password" value="">
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn-lg btn-orange btn-block" value="logga in">
+										</div>
+									</div>
+								</div>
+	
+						</form>
+					
+					
+                </div>
+			</div>
+		
+	</div>
 HTML;
   }
   

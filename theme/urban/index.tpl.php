@@ -4,9 +4,14 @@
 <meta charset='utf-8'/>
 <title><?=$title . $title_append?></title>
 <?php if(isset($favicon)): ?><link rel='icon' href='<?=$this->url->asset($favicon)?>'/><?php endif; ?>
+
+<!-- Latest compiled and minified boostrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 <?php foreach($stylesheets as $stylesheet): ?>
 <link rel='stylesheet' type='text/css' href='<?=$this->url->asset($stylesheet)?>'/>
 <?php endforeach; ?>
+
 <?php if(isset($style)): ?><style><?=$style?></style><?php endif; ?>
 <script src='<?=$this->url->asset($modernizr)?>'></script>
 </head>

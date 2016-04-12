@@ -47,7 +47,10 @@ $app->router->add('user_info', function() use ($app, $di)
   
   $html .= $usr->getLoginForm();
   
+  
   $app->theme->setVariable('main',$html);
+  
+  
 });
 
  
