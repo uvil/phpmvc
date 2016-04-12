@@ -37,7 +37,7 @@ return [
         // This is a menu item
         'login' => [
             'text'  =>'Login',
-            'url'   => $this->di->get('url')->create('login'),
+            'url'   => $this->di->get('url')->create('loginform'),
             'title' => 'Internal route within this frontcontroller'
         ],
         

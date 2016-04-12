@@ -62,7 +62,7 @@ class CUserBase extends \Anax\UVC\CDatabaseModel  {
   }
   
   
-  public function getLoginForm(){
+  public function getLoginForm($action){
     
     return <<< HTML
         <div class="container" >
@@ -71,7 +71,7 @@ class CUserBase extends \Anax\UVC\CDatabaseModel  {
 				<div class="panel panel-default " style="padding: 30px;">
 					
 					
-						<form role="form"  action="?p=main" method="POST">
+						<form role="form"  action="$action" method="POST">
 							
 								<div class="row" style="padding-bottom:20px;">
 									<div class="text-center">

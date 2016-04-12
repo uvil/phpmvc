@@ -45,14 +45,26 @@ $app->router->add('user_info', function() use ($app, $di)
   $app->theme->setVariable('main',$html);
 });
 
-$app->router->add('login', function() use ($app, $di) 
+$app->router->add('loginform', function() use ($app, $di) 
 {
   $app->theme->setVariable('title', "Login");
   
   $usr = new \Anax\UVC\CUserBase('user');
   $usr->setDI($di);
   
-$app->theme->setVariable('main',"<div style='margin-top:80px;'>".$usr->getLoginForm()."</div>");
+$app->theme->setVariable('main',"<div style='margin-top:80px;'>".$usr->getLoginForm('login')."</div>");
+});
+
+$app->router->add('login', function() use ($app, $di) 
+{
+  $app->theme->setVariable('title', "Login process");
+  
+  $usr = new \Anax\UVC\CUserBase('user');
+  $usr->setDI($di);
+  
+  $usr->login();
+  
+$app->theme->setVariable('main',"<div style='margin-top:80px;'>Här skall formulärdata kollas mot databasen. Ännu ej klart. Du är nu inloggad.</div>");
 });
 
 $app->router->add('logout', function() use ($app, $di) 
@@ -66,6 +78,7 @@ $app->router->add('logout', function() use ($app, $di)
   
 $app->theme->setVariable('main',"<div style='margin-top:80px;'>Du är nu utloggad.</div>");
 });
+
   
 
  
